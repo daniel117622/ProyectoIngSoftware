@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BlankApp.StartingPage"
+             Title="Pagina Principal">
+
+    <!-- StackLayout is used so items stack over each other 
+    <StackLayout Background="yellow" Padding="0" Margin="10" Spacing="0" Orientation="Vertical">
+        <Label Text="Hola mundo de Xamarin" Background="lightblue"/>
+        <Label Text="Soy un texto" Background="lightblue" />
+        <Label Text="Soy un texto sin espacio" Background="lightblue" />
+    </StackLayout>
+    -->
+    
+   <!--Grid is another way to layout things-->
+    <Grid BackgroundColor="White" RowSpacing="5" ColumnSpacing="3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label 
+            Text="EasyDinner" 
+            Grid.Column="0" 
+            Grid.Row="1" 
+            HorizontalOptions="Center"
+            VerticalOptions="Center"
+            FontSize="54"
+            FontFamily="monospace"
+            TextColor="Black"></Label>
+        <Button 
+            Text="Cliente" 
+            TextColor="Black"
+            Grid.Row = "2"
+            BackgroundColor= "WhiteSmoke"
+            Clicked="SendToRestaurantPage"
+            Margin="10"
+            FontFamily="monospace"
+            FontSize="25"
+         ></Button>
+        <Button 
+            Text="Restaurante"
+            TextColor="Black"
+            Grid.Row = "3"
+            BackgroundColor= "WhiteSmoke"
+            Clicked="SendToClientPage"
+            Margin="10"
+            FontFamily="monospace"
+            FontSize="25"
+        ></Button>
+    </Grid>
+</ContentPage>
+

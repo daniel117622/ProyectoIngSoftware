@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BlankApp.ClientPage"
+             Title="Cliente">
+
+
+    <Grid BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="11*"></RowDefinition>
+            <RowDefinition Height="1*"></RowDefinition>
+            <RowDefinition Height="0.8*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <CollectionView ItemsSource = "{Binding ItemsCollection}" Grid.Row="0">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="WhiteSmoke" BackgroundColor="White">
+                        <StackLayout Orientation="Horizontal" BackgroundColor="White" Margin="0" HorizontalOptions="CenterAndExpand" Padding="0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"></ColumnDefinition>
+                                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                                    <ColumnDefinition Width="10*"></ColumnDefinition>
+                                    <ColumnDefinition Width="5*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                               
+                                <Label Grid.Column="0" 
+                                Text="{Binding Nombre}" 
+                                Padding="0" 
+                                TextColor="Black"
+                                HorizontalTextAlignment ="Center"
+                                VerticalTextAlignment="Start"
+                                FontFamily="monospace"
+                                />
+                                
+                                <!--A label-->
+                                <Label 
+                                Text="{Binding Descripcion}" 
+                                Padding="0" 
+                                Grid.Column="1"
+                                Grid.ColumnSpan="2"
+                                TextColor="Black"
+                                HorizontalTextAlignment="Start"
+                                VerticalTextAlignment="Start"
+                                FontFamily="monospace"
+                                FontSize="Medium"
+                             />
+                                <Label 
+                                Text="{Binding Costo}" 
+                                Padding="0" 
+                                Grid.Column="2"
+                                TextDecorations="Underline"
+                                TextColor="Black"
+                                HorizontalTextAlignment="End"
+                                VerticalTextAlignment="End"
+                                FontFamily="monospace"
+                                FontSize="Large"
+                            />
+
+                                <Grid Grid.Column="3">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="1*"></RowDefinition>
+                                        <RowDefinition Height="1*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Button Text="+" BackgroundColor="WhiteSmoke" Grid.Row="0" Margin ="0,5" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Clicked="Add_Item" FontAttributes="Bold" FontSize="30" TextColor="DarkGreen"></Button>
+                                    <Button Text="-" BackgroundColor="WhiteSmoke" Grid.Row="1" Margin ="0,5" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Clicked="Remove_Item" FontAttributes="Bold" FontSize="30" TextColor="DarkRed"></Button>
+                                </Grid>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Grid Grid.Row="1" BackgroundColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*"></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <Button Text="Submit" Grid.Column="0" BackgroundColor="WhiteSmoke" TextColor="Black" Clicked="OnSubmit" Margin="0"></Button>
+            <Picker Grid.Column="1" ItemsSource="{Binding Mesas}" BackgroundColor="GhostWhite" WidthRequest="50" Title="1" TitleColor="Black" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand"  FontSize="30" SelectedIndexChanged="OnItemSelection" TextColor="Black" Margin="0"></Picker>
+            
+        </Grid>
+        
+        
+        <Label Grid.Row="2" HorizontalOptions="CenterAndExpand" TextColor="Black" FontSize="Large" BackgroundColor="White" VerticalOptions="CenterAndExpand" Margin="0">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="    Total: "/>
+                    <Span Text="{Binding Path = ticket.Total}"/>
+                    <Span Text="    Cantidad: "/>
+                    <Span Text="{Binding Path = ticket.Cantidad}"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+
+    </Grid>
+
+</ContentPage>

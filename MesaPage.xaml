@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BlankApp.MesaPage">
+    <ContentPage.Content>
+        <Grid BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="11*"/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>        
+            <CollectionView ItemsSource ="{Binding CuentaMesas}" Grid.Row="1">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal" Spacing="0" BackgroundColor="White">
+                            <Grid BackgroundColor="White">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="1*"/>
+                                </Grid.ColumnDefinitions>
+                            </Grid>
+                            <Frame HeightRequest="90" WidthRequest="90" Grid.Column="0" HorizontalOptions="CenterAndExpand" BorderColor="Black" CornerRadius="0">
+                                <Label Text="{Binding Platillo}" VerticalOptions="CenterAndExpand" TextColor="Black" FontFamily="monospace" FontSize="25"/>
+                            </Frame>
+                            <Frame HeightRequest="90" WidthRequest="90" Grid.Column="1" HorizontalOptions="CenterAndExpand" BorderColor="Black"  CornerRadius="0">
+                                <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="Black">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="#" FontFamily="monospace" FontSize="25"/><Span Text="{Binding Cantidad}" FontFamily="monospace" FontSize="25"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </Frame>
+                            <Frame HeightRequest="90" WidthRequest="90" Grid.Column="2" HorizontalOptions="CenterAndExpand" BorderColor="Black"  CornerRadius="0">
+                                <Label HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="Black" >
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="$" FontFamily="monospace" FontSize="25"/>
+                                            <Span Text="{Binding Precio}" FontFamily="monospace" FontSize="25"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+                            </Frame>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <Button Text="Aceptar" Grid.Row="2" Clicked="Button_Clicked" FontFamily="monospace" FontSize="25" BackgroundColor="WhiteSmoke" TextColor="Black"/>
+            <Label Grid.Row="0" HorizontalOptions="Center">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Cuenta de tu mesa" TextColor="Black" FontSize="45" FontFamily="monospace"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>
